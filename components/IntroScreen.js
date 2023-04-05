@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { theme } from "@/styles/theme";
+import { Typography } from "@mui/material";
+import styles from "../styles/IntroScreen.module.css";
 
 export default function IntroScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -26,8 +28,7 @@ export default function IntroScreen() {
         { value: true, expires: 1 },
         { expires: 1 }
       ); // Set cookie to expire in 24 hours
-    }, 3000);
-
+    }, 3650); //4150
     return () => clearTimeout(timer);
   }, []);
 
@@ -41,7 +42,7 @@ export default function IntroScreen() {
       initial="visible"
       animate={isVisible ? "visible" : "hidden"}
       variants={variants}
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 1.25, ease: "easeOut" }}
       style={{
         height: "100vh",
         width: "100vw",
@@ -50,10 +51,11 @@ export default function IntroScreen() {
         justifyContent: "center",
         position: "absolute",
         backgroundColor: theme.palette.background.default,
-        // zIndex: 3,
       }}
     >
-      <h1 style={{ fontSize: "5rem" }}>Hi, I'm Chris.</h1>
+      <Typography className={styles.typing} variant={"h2"}>
+        Hi, I'm Chris.
+      </Typography>
     </motion.div>
   );
 }

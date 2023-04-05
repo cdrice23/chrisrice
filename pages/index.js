@@ -1,14 +1,26 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, useMediaQuery } from "@mui/material";
 import Head from "next/head";
 import SwipeableEdgeDrawer from "@/components/SwipeableEdgeDrawer";
 import HeroGif from "@/components/HeroGif";
 import { useState, useCallback } from "react";
 import IntroScreen from "@/components/IntroScreen";
+import { theme } from "@/styles/theme";
 
 const drawerWidth = 240;
 
 export default function Home() {
   const [paused, setPaused] = useState(null);
+  const isMobile = useMediaQuery(
+    `(max-width: ${theme.breakpoints.values.md}px`
+  );
+
+  const careerTransform = isMobile
+    ? "translateY(-50%) translateX(-100px) rotate(-90deg)"
+    : "translateY(-50%)";
+
+  const projectsTransform = isMobile
+    ? "translateY(-50%) rotate(90deg)"
+    : "translateY(-50%) translateX(-100px)";
 
   const handleOpen = (open) => {
     setPaused(open);
@@ -39,7 +51,7 @@ export default function Home() {
           anchor="right"
           label="Projects"
           drawerWidth={drawerWidth}
-          transform="translateY(-50%) rotate(90deg)"
+          transform={projectsTransform}
           handleOpen={handleOpen}
         >
           <Typography width={"100%"}>Projects</Typography>
@@ -57,7 +69,7 @@ export default function Home() {
           anchor="left"
           label="Career Timeline"
           drawerWidth={drawerWidth}
-          transform="translateY(-50%) translateX(calc(0% - 100px)) rotate(-90deg)"
+          transform={careerTransform}
           handleOpen={handleOpen}
         >
           <Typography justify="center" width={"100%"}>

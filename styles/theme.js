@@ -36,7 +36,7 @@ export const theme = createTheme({
       fontFamily: yuji.style.fontFamily,
     },
     h2: {
-      fontFamily: yuji.style.fontFamily,
+      fontFamily: sono.style.fontFamily,
     },
     h3: {
       fontFamily: yuji.style.fontFamily,

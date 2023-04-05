@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { SwipeableDrawer, Button } from "@mui/material";
+import { SwipeableDrawer, Button, useMediaQuery } from "@mui/material";
+import { theme } from "@/styles/theme";
 
 export default function SwipeableEdgeDrawer(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMediaQuery(
+    `(max-width: ${theme.breakpoints.values.sm}px`
+  );
+
+  const topOffset = isMobile ? "150px" : "50px";
+  const bottomOffset = isMobile ? "250px" : "150px";
+
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
@@ -25,11 +33,12 @@ export default function SwipeableEdgeDrawer(props) {
           position: "absolute",
           zIndex: 1,
           transform: props.transform,
+          marginTop: props.anchor === "top" ? topOffset : 0,
           top:
             props.anchor === "top"
               ? 0
               : props.anchor === "bottom"
-              ? "calc(100% - 100px)"
+              ? `calc(100% - ${bottomOffset})`
               : "50%",
           //   bottom:
           //     props.anchor === "bottom"
