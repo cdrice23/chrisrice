@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { SwipeableDrawer, Button, useMediaQuery } from "@mui/material";
+import {
+  SwipeableDrawer,
+  Button,
+  useMediaQuery,
+  Typography,
+} from "@mui/material";
 import { theme } from "@/styles/theme";
 
 export default function SwipeableEdgeDrawer(props) {
@@ -62,7 +67,7 @@ export default function SwipeableEdgeDrawer(props) {
         onClick={toggleDrawer(true)}
         style={{ [props.anchor]: 0 }}
       >
-        {props.label}
+        <Typography variant="h5">{props.label}</Typography>
       </Button>
       <SwipeableDrawer
         sx={{ width: props.drawerWidth, flexShrink: 0 }}

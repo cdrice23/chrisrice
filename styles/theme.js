@@ -1,17 +1,38 @@
 import { createTheme } from "@mui/material";
 import {
+  Lekton,
+  Anaheim,
+  Bai_Jamjuree,
   Cutive_Mono,
-  Newsreader,
-  Sono,
-  Special_Elite,
-  Yuji_Syuku,
+  Manrope,
 } from "next/font/google";
 
-const cutive_mono = Cutive_Mono({ weight: "400", subsets: ["latin"] });
-const newsreader = Newsreader({ weight: "400", subsets: ["latin"] });
-const sono = Sono({ weight: "400", subsets: ["latin"] });
-const yuji = Yuji_Syuku({ weight: "400", subsets: ["latin"] });
-const special_elite = Special_Elite({ weight: "400", subsets: ["latin"] });
+// Font declarations
+const cutive_mono = Cutive_Mono({
+  weight: "400",
+  subsets: ["latin"],
+});
+const manrope = Manrope({
+  weight: "400",
+  subsets: ["latin"],
+});
+const bai_jamjuree = Bai_Jamjuree({
+  weight: "400",
+  subsets: ["latin"],
+});
+const lekton = Lekton({
+  weight: "400",
+  subsets: ["latin"],
+});
+const anaheim = Anaheim({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// set defaults
+const defaultFont = bai_jamjuree;
+const headerFont = bai_jamjuree;
+const monoFont = cutive_mono;
 
 export const theme = createTheme({
   palette: {
@@ -30,34 +51,31 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: sono.style.fontFamily,
+    fontFamily: defaultFont.style.fontFamily,
     fontSize: 16,
     h1: {
-      fontFamily: yuji.style.fontFamily,
+      fontFamily: headerFont.style.fontFamily,
     },
     h2: {
-      fontFamily: sono.style.fontFamily,
+      fontFamily: monoFont.style.fontFamily,
     },
     h3: {
-      fontFamily: yuji.style.fontFamily,
-      "@media (max-width: 600px)": {
-        fontSize: "2.4rem",
-      },
+      fontFamily: headerFont.style.fontFamily,
     },
     h4: {
-      fontFamily: yuji.style.fontFamily,
+      fontFamily: headerFont.style.fontFamily,
       "@media (max-width: 600px)": {
         fontSize: "1.8rem",
       },
     },
     h5: {
-      fontFamily: yuji.style.fontFamily,
+      fontFamily: headerFont.style.fontFamily,
       "@media (max-width: 600px)": {
         fontSize: "1.3rem",
       },
     },
     h6: {
-      fontFamily: sono.style.fontFamily,
+      fontFamily: headerFont.style.fontFamily,
     },
     button: {
       textTransform: "none",
