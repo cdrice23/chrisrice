@@ -6,6 +6,7 @@ import { useState, useCallback } from "react";
 import IntroScreen from "@/components/IntroScreen";
 import { theme } from "@/styles/theme";
 import AboutMe from "@/components/AboutMe";
+import CareerTimeline from "@/components/CareerTimeline";
 
 const drawerWidth = 240;
 
@@ -73,9 +74,7 @@ export default function Home() {
           transform={careerTransform}
           handleOpen={handleOpen}
         >
-          <Typography justify="center" width={"100%"}>
-            Career Timeline
-          </Typography>
+          <CareerTimeline />
         </SwipeableEdgeDrawer>
         <HeroGif paused={paused} />
       </Box>
