@@ -7,6 +7,7 @@ import IntroScreen from "@/components/IntroScreen";
 import { theme } from "@/styles/theme";
 import AboutMe from "@/components/AboutMe";
 import CareerTimeline from "@/components/CareerTimeline";
+import Projects from "@/components/Projects";
 
 const drawerWidth = 240;
 
@@ -56,7 +57,7 @@ export default function Home() {
           transform={projectsTransform}
           handleOpen={handleOpen}
         >
-          <Typography width={"100%"}>Projects</Typography>
+          <Projects />
         </SwipeableEdgeDrawer>
         <SwipeableEdgeDrawer
           anchor="bottom"
