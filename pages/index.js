@@ -15,25 +15,10 @@ const drawerWidth = 240;
 
 export default function Home() {
   const [paused, setPaused] = useState(null);
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.md}px`
-  );
-
-  // console.log(Cookies.get("introScreenShown"));
-
-  const careerTransform = isMobile
-    ? "translateY(-50%) translateX(-100px) rotate(-90deg)"
-    : "translateY(-50%)";
-
-  const projectsTransform = isMobile
-    ? "translateY(-50%) rotate(90deg)"
-    : "translateY(-50%) translateX(-100px)";
 
   const handleOpen = (open) => {
     setPaused(open);
   };
-
-  // console.log(paused);
 
   return (
     <>
@@ -54,12 +39,25 @@ export default function Home() {
         >
           <AboutMe />
         </SwipeableEdgeDrawer>
+        {/* under md */}
         <SwipeableEdgeDrawer
           anchor="right"
           label="Projects"
           drawerWidth={drawerWidth}
-          transform={projectsTransform}
+          transform={"translateY(-50%) rotate(90deg)"}
           handleOpen={handleOpen}
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          <Projects />
+        </SwipeableEdgeDrawer>
+        {/* over md */}
+        <SwipeableEdgeDrawer
+          anchor="right"
+          label="Projects"
+          drawerWidth={drawerWidth}
+          transform={"translateY(-50%) translateX(-100px)"}
+          handleOpen={handleOpen}
+          sx={{ display: { xs: "none", md: "block" } }}
         >
           <Projects />
         </SwipeableEdgeDrawer>
@@ -72,12 +70,26 @@ export default function Home() {
         >
           <Contact />
         </SwipeableEdgeDrawer>
+        {/* under md */}
         <SwipeableEdgeDrawer
           anchor="left"
           label="Career Timeline"
           drawerWidth={drawerWidth}
-          transform={careerTransform}
+          transform={"translateY(-50%) translateX(-100px) rotate(-90deg)"}
           handleOpen={handleOpen}
+          display=""
+          sx={{ display: { xs: "block", md: "none" } }}
+        >
+          <CareerTimeline />
+        </SwipeableEdgeDrawer>
+        {/* md and over */}
+        <SwipeableEdgeDrawer
+          anchor="left"
+          label="Career Timeline"
+          drawerWidth={drawerWidth}
+          transform={"translateY(-50%)"}
+          handleOpen={handleOpen}
+          sx={{ display: { xs: "none", md: "block" } }}
         >
           <CareerTimeline />
         </SwipeableEdgeDrawer>
