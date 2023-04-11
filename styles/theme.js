@@ -103,4 +103,11 @@ export const theme = createTheme({
       textTransform: "none",
     },
   },
+  components: {
+    MuiUseMediaQuery: {
+      defaultProps: {
+        noSsr: true,
+      },
+    },
+  },
 });
