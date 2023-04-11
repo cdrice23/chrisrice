@@ -8,6 +8,8 @@ import { theme } from "@/styles/theme";
 import AboutMe from "@/components/AboutMe";
 import CareerTimeline from "@/components/CareerTimeline";
 import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Cookies from "js-cookie";
 
 const drawerWidth = 240;
 
@@ -16,6 +18,8 @@ export default function Home() {
   const isMobile = useMediaQuery(
     `(max-width: ${theme.breakpoints.values.md}px`
   );
+
+  // console.log(Cookies.get("introScreenShown"));
 
   const careerTransform = isMobile
     ? "translateY(-50%) translateX(-100px) rotate(-90deg)"
@@ -39,7 +43,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/headphones.png" />
       </Head>
-      {/* <IntroScreen /> */}
+      <IntroScreen />
       <Box display="flex" overflow={"hidden"} height={"100%"} width={"100%"}>
         <SwipeableEdgeDrawer
           anchor="top"
@@ -66,7 +70,7 @@ export default function Home() {
           transform="translateX(-50%)"
           handleOpen={handleOpen}
         >
-          <Typography>Contact Me</Typography>
+          <Contact />
         </SwipeableEdgeDrawer>
         <SwipeableEdgeDrawer
           anchor="left"

@@ -243,7 +243,7 @@ export default function FontSwatch(props) {
               <strong>{obj.name}</strong>
             </Typography>
             <Typography sx={obj} p={2} className={obj.fontFamily}>
-              <strong>Hi, I'm Chris.</strong>
+              <strong>{`Hi, I'm Chris.`}</strong>
             </Typography>
             <Typography sx={obj} p={2} className={obj.fontFamily}>
               {`I’ve spent my entire career working in tech - I’ve worked as a consultant and had various management roles within a large tech startup. Whenever I had the opportunity to build something technical from scratch (be it a simple Excel macro to more complicated Retool applications), it gave me a renewed sense of passion and excitement.`}

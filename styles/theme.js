@@ -30,24 +30,46 @@ const anaheim = Anaheim({
 });
 
 // set defaults
-const defaultFont = bai_jamjuree;
-const headerFont = bai_jamjuree;
+const defaultFont = lekton;
+const headerFont = lekton;
 const monoFont = cutive_mono;
+
+// !! -- SECONDARY COLORS FOR LIST ITEMS
+// white
+// const secondaryText = "#fcfeff";
+// black
+const secondaryText = "#302f2f";
+// dark brown
+// const secondaryText = "#362719";
+
+// Light w/ black - 8/10
+// slate dark blue
+// const primaryMain = "#014273";
+// bluie
+const primaryMain = "#012973";
+// green
+// const primaryMain = "#015208";
+// a lighter green
+// const primaryMain = "#01690a";
+// const secondaryMain = "#969696";
+const secondaryMain = "#141414";
+const bg = "#ffffff";
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#cc0000",
+      main: primaryMain,
     },
     secondary: {
-      main: "#4f83cc",
+      main: secondaryMain,
     },
     background: {
-      default: "#fff5e6",
-      paper: "#fff5e6",
+      default: bg,
+      paper: bg,
     },
     text: {
-      primary: "#cc0000",
+      primary: primaryMain,
+      secondary: secondaryText,
     },
   },
   typography: {

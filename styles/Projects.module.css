@@ -1,0 +1,17 @@
+.link {
+    text-decoration: none;
+}
+
+.bulletWrapper {
+    margin-block: 0;
+}
+
+.bullet {
+    list-style-type: square;
+    list-style-position: outside;
+    color: #302f2f
+}
+
+.image {
+    border-radius: 8px;
+}

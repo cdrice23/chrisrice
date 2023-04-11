@@ -2,32 +2,18 @@ import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { theme } from "@/styles/theme";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import styles from "../styles/IntroScreen.module.css";
 
 export default function IntroScreen() {
   const [isVisible, setIsVisible] = useState(true);
+  const isMobile = useMediaQuery(
+    `(max-width: ${theme.breakpoints.values.sm}px`
+  );
 
   useEffect(() => {
-    const introScreenCookie = Cookies.get("introScreenShown");
-
-    if (introScreenCookie) {
-      const { expires } = Cookies.get("introScreenShown");
-      const cookieExpirationDate = new Date(expires);
-
-      if (cookieExpirationDate > new Date()) {
-        setIsVisible(false);
-        return;
-      }
-    }
-
     const timer = setTimeout(() => {
       setIsVisible(false);
-      Cookies.set(
-        "introScreenShown",
-        { value: true, expires: 1 },
-        { expires: 1 }
-      ); // Set cookie to expire in 24 hours
     }, 3650); //4150
     return () => clearTimeout(timer);
   }, []);
@@ -53,8 +39,8 @@ export default function IntroScreen() {
         backgroundColor: theme.palette.background.default,
       }}
     >
-      <Typography className={styles.typing} variant={"h2"}>
-        Hi, I'm Chris.
+      <Typography className={styles.typing} variant={isMobile ? "h4" : "h2"}>
+        {`Hi, I'm Chris.`}
       </Typography>
     </motion.div>
   );
