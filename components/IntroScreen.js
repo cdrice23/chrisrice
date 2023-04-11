@@ -39,7 +39,18 @@ export default function IntroScreen() {
         backgroundColor: theme.palette.background.default,
       }}
     >
-      <Typography className={styles.typing} variant={isMobile ? "h4" : "h2"}>
+      <Typography
+        className={styles.typing}
+        variant={"h2"}
+        sx={{ display: { xs: "none", md: "block" } }}
+      >
+        {`Hi, I'm Chris.`}
+      </Typography>
+      <Typography
+        className={styles.typing}
+        variant={"h4"}
+        sx={{ display: { xs: "block", md: "none" } }}
+      >
         {`Hi, I'm Chris.`}
       </Typography>
     </motion.div>
