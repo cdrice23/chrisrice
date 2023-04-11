@@ -46,7 +46,7 @@ export default function Home() {
           drawerWidth={drawerWidth}
           transform={"translateY(-50%) rotate(90deg)"}
           handleOpen={handleOpen}
-          sx={{ display: { xs: "block", md: "none" } }}
+          sx={{ display: { xs: "block", sm: "none" } }}
         >
           <Projects />
         </SwipeableEdgeDrawer>
@@ -57,7 +57,7 @@ export default function Home() {
           drawerWidth={drawerWidth}
           transform={"translateY(-50%) translateX(-100px)"}
           handleOpen={handleOpen}
-          sx={{ display: { xs: "none", md: "block" } }}
+          sx={{ display: { xs: "none", sm: "block" } }}
         >
           <Projects />
         </SwipeableEdgeDrawer>
@@ -78,7 +78,7 @@ export default function Home() {
           transform={"translateY(-50%) translateX(-100px) rotate(-90deg)"}
           handleOpen={handleOpen}
           display=""
-          sx={{ display: { xs: "block", md: "none" } }}
+          sx={{ display: { xs: "block", sm: "none" } }}
         >
           <CareerTimeline />
         </SwipeableEdgeDrawer>
@@ -89,7 +89,7 @@ export default function Home() {
           drawerWidth={drawerWidth}
           transform={"translateY(-50%)"}
           handleOpen={handleOpen}
-          sx={{ display: { xs: "none", md: "block" } }}
+          sx={{ display: { xs: "none", sm: "block" } }}
         >
           <CareerTimeline />
         </SwipeableEdgeDrawer>
