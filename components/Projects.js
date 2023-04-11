@@ -218,6 +218,7 @@ export default function Projects() {
                       width="200"
                       className={styles.image}
                       alt={step.alt}
+                      priority
                     />
 
                     <Grid item xs={12} display={isMobile ? "none" : "flex"}>
