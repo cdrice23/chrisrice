@@ -23,8 +23,7 @@ export default function HeroGif(props) {
       left="50%"
       sx={{
         transform: "translate(-50%, -50%)",
-        padding: { xs: "300px", sm: "150px", md: "200px" },
-        // padding: { xs: "30%", sm: "20%", md: "10%" },
+        padding: "300px",
       }}
       height={"100%"}
       overflow="hidden"
