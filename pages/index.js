@@ -134,7 +134,7 @@ export default function Home() {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          paddingY="300px"
+          // paddingY="300px"
           // sx={{ paddingY: { xs: "300px", sm: "150px", md: "200px" } }}
           height={"100%"}
           width={"100%"}
