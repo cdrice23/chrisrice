@@ -129,7 +129,18 @@ export default function Home() {
         >
           <CareerTimelineDesktop />
         </SwipeableEdgeDrawerDesktop>
-        <HeroGif paused={paused} />
+        <Box
+          position={"fixed"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          sx={{ paddingY: { xs: "300px", sm: "150px", md: "200px" } }}
+          height={"100vh"}
+          width={"100vw"}
+          overflow="hidden"
+        >
+          <HeroGif paused={paused} />
+        </Box>
       </Box>
     </>
   );
