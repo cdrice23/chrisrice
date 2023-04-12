@@ -4,18 +4,14 @@ import { theme } from "@/styles/theme";
 import Link from "next/link";
 import styles from "../styles/Contact.module.css";
 
-export default function Contact() {
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.sm}px`
-  );
+export default function ContactMobile() {
   return (
     <Box
-      height={isMobile ? 200 : 150}
+      height={200}
       display={"flex"}
-      //   flexDirection={isMobile ? "column" : "row"}
-      justifyContent={isMobile ? "space-around" : "center"}
+      justifyContent={"space-around"}
       alignItems={"center"}
-      //   paddingY={isMobile ? 3 : 0}
+      // sx={{ display: { xs: "flex", sm: "none" } }}
     >
       <Link
         href="https://github.com/cdrice23"
@@ -28,7 +24,7 @@ export default function Contact() {
           variant="contained"
           startIcon={<GitHub />}
           sx={{
-            marginX: isMobile ? 1 : 4,
+            marginX: 1,
             borderRadius: 16,
             backgroundColor: "#4078c0",
           }}
@@ -48,7 +44,7 @@ export default function Contact() {
           variant="contained"
           startIcon={<LinkedIn />}
           sx={{
-            marginX: isMobile ? 1 : 4,
+            marginX: 1,
             borderRadius: 16,
             backgroundColor: "#00A0DC",
           }}
@@ -68,7 +64,7 @@ export default function Contact() {
           variant="contained"
           startIcon={<Mail />}
           sx={{
-            marginX: isMobile ? 1 : 4,
+            marginX: 1,
             borderRadius: 16,
             backgroundColor: "#4285F4",
           }}

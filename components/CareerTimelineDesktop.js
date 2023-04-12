@@ -53,21 +53,15 @@ const timelineSteps = [
   },
 ];
 
-export default function CareerTimeline() {
+export default function CareerTimelineDesktop() {
   const [activeStep, setActiveStep] = useState(0);
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.sm}px`
-  );
 
   const handleChange = (index) => () => {
     setActiveStep(index);
   };
+
   return (
-    <Box
-      sx={{ maxWidth: isMobile ? 300 : 640 }}
-      padding={isMobile ? 2 : 4}
-      mr={isMobile ? 2 : 0}
-    >
+    <Box sx={{ maxWidth: 640 }} padding={4} mr={0}>
       <Stepper
         nonLinear
         activeStep={activeStep}
@@ -80,11 +74,7 @@ export default function CareerTimeline() {
       >
         {timelineSteps.map((step, index) => (
           <Step key={step.label}>
-            <StepButton
-              color="inherit"
-              onClick={handleChange(index)}
-              disableRipple
-            >
+            <StepButton color="inherit" onClick={handleChange(index)}>
               <Box marginLeft={2}>
                 <Typography variant={"h6"}>{step.label}</Typography>
 
@@ -101,7 +91,7 @@ export default function CareerTimeline() {
                   fontSize={"0.85em"}
                   color={theme.palette.text.secondary}
                   mt={2}
-                  px={isMobile ? 0 : 2}
+                  px={2}
                   fontStyle="italic"
                 >
                   {step.description}

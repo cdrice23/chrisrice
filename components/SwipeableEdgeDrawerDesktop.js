@@ -4,17 +4,12 @@ import {
   Button,
   useMediaQuery,
   Typography,
+  Box,
 } from "@mui/material";
 import { theme } from "@/styles/theme";
 
-export default function SwipeableEdgeDrawer(props) {
+export default function SwipeableEdgeDrawerDesktop(props) {
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.sm}px`
-  );
-
-  const topOffset = isMobile ? "150px" : "50px";
-  const bottomOffset = isMobile ? "250px" : "150px";
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -39,31 +34,20 @@ export default function SwipeableEdgeDrawer(props) {
           position: "absolute",
           zIndex: 1,
           transform: props.transformButton,
-          marginTop: props.anchor === "top" ? topOffset : 0,
+          marginTop: props.anchor === "top" ? "50px" : 0,
           top:
             props.anchor === "top"
               ? 0
               : props.anchor === "bottom"
-              ? `calc(100% - ${bottomOffset})`
+              ? `calc(100% - 150px)`
               : "50%",
-          //   bottom:
-          //     props.anchor === "bottom"
-          //       ? 0
-          //       : props.anchor === "top"
-          //       ? "75%"
-          //       : "50%",
           left:
             props.anchor === "left"
               ? 0
               : props.anchor === "right"
               ? "calc(100% - 200px)"
               : "50%",
-          //   right:
-          //     props.anchor === "right"
-          //       ? 0
-          //       : props.anchor === "left"
-          //       ? "75%"
-          //       : "50%",
+          display: { xs: "none", md: "block" },
         }}
         onClick={toggleDrawer(true)}
         style={{ [props.anchor]: 0 }}

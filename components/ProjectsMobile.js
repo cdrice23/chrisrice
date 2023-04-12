@@ -164,21 +164,15 @@ const projectSteps = [
   },
 ];
 
-export default function Projects() {
+export default function ProjectsMobile() {
   const [activeStep, setActiveStep] = useState(0);
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.sm}px`
-  );
 
   const handleChange = (index) => () => {
     setActiveStep(index);
   };
+
   return (
-    <Box
-      sx={{ maxWidth: isMobile ? 232 : 640 }}
-      padding={isMobile ? 2 : 4}
-      mr={isMobile ? 2 : 0}
-    >
+    <Box sx={{ maxWidth: 232 }} padding={2} mr={2}>
       <Stepper
         nonLinear
         activeStep={activeStep}
@@ -210,7 +204,7 @@ export default function Projects() {
                   margin: 0,
                 }}
               >
-                <Grid container width={isMobile ? 200 : 600}>
+                <Grid container width={200}>
                   <Grid item xs={12} md={4}>
                     <Image
                       src={step.imageUrl}
@@ -220,28 +214,6 @@ export default function Projects() {
                       alt={step.alt}
                       priority
                     />
-
-                    <Grid item xs={12} display={isMobile ? "none" : "flex"}>
-                      <Stack
-                        width={"100%"}
-                        display="inline-block"
-                        paddingY={isMobile ? 0 : 1}
-                      >
-                        {step.technologiesUsed.map((item) => {
-                          return (
-                            <Chip
-                              key={item}
-                              label={item}
-                              sx={{
-                                fontSize: "0.7em",
-                                height: 20,
-                                marginX: 0.15,
-                              }}
-                            />
-                          );
-                        })}
-                      </Stack>
-                    </Grid>
                   </Grid>
                   <Grid item container xs={12} md={8}>
                     <Grid
@@ -251,20 +223,17 @@ export default function Projects() {
                       paddingY={2}
                       display="flex"
                       alignItems="center"
-                      justifyContent={isMobile ? "center" : "start"}
-                      paddingX={isMobile ? 1.5 : 4}
+                      justifyContent={"center"}
+                      paddingX={1.5}
                     >
-                      <Typography
-                        display="inline"
-                        fontSize={isMobile ? "0.9em" : "1.1em"}
-                      >
+                      <Typography display="inline" fontSize={"0.9em"}>
                         {`Status: `}
                       </Typography>
                       <Chip
                         variant="outlined"
                         label={step.status}
                         sx={{
-                          marginLeft: isMobile ? 0.5 : 2,
+                          marginLeft: 0.5,
                           fontSize: "0.8em",
                           height: "20px",
                           backgroundColor:
@@ -284,7 +253,7 @@ export default function Projects() {
                       paddingY={2}
                       display="flex"
                       alignItems="center"
-                      justifyContent={isMobile ? "end" : "center"}
+                      justifyContent={"end"}
                     >
                       <Link
                         href={step.linkUrl}
@@ -292,15 +261,14 @@ export default function Projects() {
                         className={styles.link}
                       >
                         <Button
-                          // variant={isMobile ? "outlined" : "contained"}
                           disableFocusRipple
                           variant="contained"
                           disabled={step.linkUrl !== "" ? false : true}
                           sx={{
-                            paddingX: isMobile ? 0 : 2,
+                            paddingX: 0,
                           }}
                         >
-                          {isMobile ? "LINK" : "Check it out!"}
+                          {"LINK"}
                         </Button>
                       </Link>
                     </Grid>
@@ -308,62 +276,14 @@ export default function Projects() {
                       <Typography
                         fontSize={"0.85em"}
                         color={theme.palette.text.secondary}
-                        paddingY={isMobile ? 0 : 1}
-                        paddingX={isMobile ? 1.5 : 4}
+                        paddingY={0}
+                        paddingX={1.5}
                         fontStyle="italic"
                       >
                         {step.description}
                       </Typography>
                     </Grid>
-                    <Grid
-                      item
-                      container
-                      xs={12}
-                      display={isMobile ? "none" : "flex"}
-                    >
-                      <Grid item xs={2}>
-                        <Typography
-                          fontSize={"0.85em"}
-                          color={theme.palette.text.primary}
-                          paddingX={4}
-                          paddingY={1}
-                          width={"100%"}
-                        >
-                          <strong>{`Goal: `}</strong>
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={10}>
-                        <Typography
-                          fontSize={"0.85em"}
-                          color={theme.palette.text.secondary}
-                          paddingX={2}
-                          paddingY={1}
-                          width={"100%"}
-                        >
-                          {step.goal}
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid item xs={12} display={isMobile ? "none" : "flex"}>
-                      <Typography
-                        fontSize={"0.85em"}
-                        color={theme.palette.text.primary}
-                        paddingX={isMobile ? 1.5 : 4}
-                        paddingY={1}
-                      >
-                        <strong>{`Features: `}</strong>
-                        <ul>
-                          {step.features.map((feat) => {
-                            return (
-                              <li key={feat} className={styles.bullet}>
-                                {feat}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
+                    <Grid item xs={12} display={"flex"}>
                       <Accordion
                         elevation={0}
                         sx={{
@@ -381,7 +301,7 @@ export default function Projects() {
                           <Stack
                             width={"100%"}
                             display="inline-block"
-                            paddingY={isMobile ? 0 : 1}
+                            paddingY={0}
                             paddingX={2}
                           >
                             {step.goal}
@@ -389,7 +309,7 @@ export default function Projects() {
                         </AccordionDetails>
                       </Accordion>
                     </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
+                    <Grid item xs={12} display={"flex"}>
                       <Accordion
                         elevation={0}
                         sx={{
@@ -421,7 +341,7 @@ export default function Projects() {
                         </AccordionDetails>
                       </Accordion>
                     </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
+                    <Grid item xs={12} display={"flex"}>
                       <Accordion
                         elevation={0}
                         sx={{
@@ -439,7 +359,7 @@ export default function Projects() {
                           <Stack
                             width={"100%"}
                             display="inline-block"
-                            paddingY={isMobile ? 0 : 1}
+                            paddingY={0}
                             paddingX={2}
                           >
                             {step.technologiesUsed.map((item) => {

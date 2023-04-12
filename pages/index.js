@@ -1,14 +1,21 @@
 import { Typography, Box, useMediaQuery } from "@mui/material";
 import Head from "next/head";
+import SwipeableEdgeDrawerDesktop from "@/components/SwipeableEdgeDrawerDesktop";
+import SwipeableEdgeDrawerMobile from "@/components/SwipeableEdgeDrawerMobile";
 import SwipeableEdgeDrawer from "@/components/SwipeableEdgeDrawer";
 import HeroGif from "@/components/HeroGif";
 import { useState, useCallback } from "react";
 import IntroScreen from "@/components/IntroScreen";
 import { theme } from "@/styles/theme";
-import AboutMe from "@/components/AboutMe";
-import CareerTimeline from "@/components/CareerTimeline";
-import Projects from "@/components/Projects";
+import AboutMeMobile from "@/components/AboutMeMobile";
+import AboutMeDesktop from "@/components/AboutMeDesktop";
+import CareerTimelineDesktop from "@/components/CareerTimelineDesktop";
+import CareerTimelineMobile from "@/components/CareerTimelineMobile";
+import ProjectsDesktop from "@/components/ProjectsDesktop";
+import ProjectsMobile from "@/components/ProjectsMobile";
 import Contact from "@/components/Contact";
+import ContactDesktop from "@/components/ContactDesktop";
+import ContactMobile from "@/components/ContactMobile";
 import Cookies from "js-cookie";
 
 const drawerWidth = 240;
@@ -30,69 +37,98 @@ export default function Home() {
       </Head>
       <IntroScreen />
       <Box display="flex" overflow={"hidden"} height={"100%"} width={"100%"}>
-        <SwipeableEdgeDrawer
-          anchor="top"
-          label="About Me"
-          drawerWidth="100%"
-          transform="translateX(-50%)"
-          handleOpen={handleOpen}
-        >
-          <AboutMe />
-        </SwipeableEdgeDrawer>
+        {/* Mobile */}
+        <Box sx={{ display: { xs: "flex", sm: "none" } }}>
+          <SwipeableEdgeDrawer
+            anchor="top"
+            label="About Me"
+            drawerWidth="100%"
+            transformButton="translateX(-50%)"
+            handleOpen={handleOpen}
+          >
+            <AboutMeMobile />
+          </SwipeableEdgeDrawer>
+        </Box>
+        {/* Desktop */}
+        <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+          <SwipeableEdgeDrawer
+            anchor="top"
+            label="About Me"
+            drawerWidth="100%"
+            transformButton="translateX(-50%)"
+            handleOpen={handleOpen}
+          >
+            <AboutMeDesktop />
+          </SwipeableEdgeDrawer>
+        </Box>
         {/* under md */}
-        <SwipeableEdgeDrawer
+        <SwipeableEdgeDrawerMobile
           anchor="right"
           label="Projects"
           drawerWidth={drawerWidth}
-          transform={"translateY(-50%) rotate(90deg)"}
+          transformButton={"translateY(-50%) rotate(90deg)"}
           handleOpen={handleOpen}
           sx={{ display: { xs: "block", sm: "none" } }}
         >
-          <Projects />
-        </SwipeableEdgeDrawer>
+          <ProjectsMobile />
+        </SwipeableEdgeDrawerMobile>
         {/* over md */}
-        <SwipeableEdgeDrawer
+        <SwipeableEdgeDrawerDesktop
           anchor="right"
           label="Projects"
           drawerWidth={drawerWidth}
-          transform={"translateY(-50%) translateX(-100px)"}
+          transformButton={"translateY(-50%) translateX(-100px)"}
           handleOpen={handleOpen}
           sx={{ display: { xs: "none", sm: "block" } }}
         >
-          <Projects />
-        </SwipeableEdgeDrawer>
-        <SwipeableEdgeDrawer
-          anchor="bottom"
-          label="Contact Me"
-          drawerWidth="100%"
-          transform="translateX(-50%)"
-          handleOpen={handleOpen}
-        >
-          <Contact />
-        </SwipeableEdgeDrawer>
+          <ProjectsDesktop />
+        </SwipeableEdgeDrawerDesktop>
+        {/* Mobile */}
+        <Box sx={{ display: { xs: "block", sm: "none" } }}>
+          <SwipeableEdgeDrawer
+            anchor="bottom"
+            label="Contact Me"
+            drawerWidth="100%"
+            transformButton="translateX(-50%)"
+            handleOpen={handleOpen}
+          >
+            <ContactMobile />
+          </SwipeableEdgeDrawer>
+        </Box>
+        {/* Desktop */}
+        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <SwipeableEdgeDrawer
+            anchor="bottom"
+            label="Contact Me"
+            drawerWidth="100%"
+            transformButton="translateX(-50%)"
+            handleOpen={handleOpen}
+          >
+            <ContactDesktop />
+          </SwipeableEdgeDrawer>
+        </Box>
         {/* under md */}
-        <SwipeableEdgeDrawer
+        <SwipeableEdgeDrawerMobile
           anchor="left"
           label="Career Timeline"
           drawerWidth={drawerWidth}
-          transform={"translateY(-50%) translateX(-100px) rotate(-90deg)"}
+          transformButton={"translateY(-50%) translateX(-100px) rotate(-90deg)"}
           handleOpen={handleOpen}
-          display=""
           sx={{ display: { xs: "block", sm: "none" } }}
         >
-          <CareerTimeline />
-        </SwipeableEdgeDrawer>
+          <CareerTimelineMobile />
+        </SwipeableEdgeDrawerMobile>
         {/* md and over */}
-        <SwipeableEdgeDrawer
+        <SwipeableEdgeDrawerDesktop
           anchor="left"
           label="Career Timeline"
           drawerWidth={drawerWidth}
-          transform={"translateY(-50%)"}
+          transformButton={"translateY(-50%)"}
           handleOpen={handleOpen}
           sx={{ display: { xs: "none", sm: "block" } }}
         >
-          <CareerTimeline />
-        </SwipeableEdgeDrawer>
+          <CareerTimelineDesktop />
+        </SwipeableEdgeDrawerDesktop>
         <HeroGif paused={paused} />
       </Box>
     </>

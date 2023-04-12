@@ -164,21 +164,15 @@ const projectSteps = [
   },
 ];
 
-export default function Projects() {
+export default function ProjectsDesktop() {
   const [activeStep, setActiveStep] = useState(0);
-  const isMobile = useMediaQuery(
-    `(max-width: ${theme.breakpoints.values.sm}px`
-  );
 
   const handleChange = (index) => () => {
     setActiveStep(index);
   };
+
   return (
-    <Box
-      sx={{ maxWidth: isMobile ? 232 : 640 }}
-      padding={isMobile ? 2 : 4}
-      mr={isMobile ? 2 : 0}
-    >
+    <Box sx={{ maxWidth: 640 }} padding={4} mr={0}>
       <Stepper
         nonLinear
         activeStep={activeStep}
@@ -210,7 +204,7 @@ export default function Projects() {
                   margin: 0,
                 }}
               >
-                <Grid container width={isMobile ? 200 : 600}>
+                <Grid container width={600}>
                   <Grid item xs={12} md={4}>
                     <Image
                       src={step.imageUrl}
@@ -220,13 +214,8 @@ export default function Projects() {
                       alt={step.alt}
                       priority
                     />
-
-                    <Grid item xs={12} display={isMobile ? "none" : "flex"}>
-                      <Stack
-                        width={"100%"}
-                        display="inline-block"
-                        paddingY={isMobile ? 0 : 1}
-                      >
+                    <Grid item xs={12} display={"flex"}>
+                      <Stack width={"100%"} display="inline-block" paddingY={1}>
                         {step.technologiesUsed.map((item) => {
                           return (
                             <Chip
@@ -251,20 +240,17 @@ export default function Projects() {
                       paddingY={2}
                       display="flex"
                       alignItems="center"
-                      justifyContent={isMobile ? "center" : "start"}
-                      paddingX={isMobile ? 1.5 : 4}
+                      justifyContent={"start"}
+                      paddingX={4}
                     >
-                      <Typography
-                        display="inline"
-                        fontSize={isMobile ? "0.9em" : "1.1em"}
-                      >
+                      <Typography display="inline" fontSize={"1.1em"}>
                         {`Status: `}
                       </Typography>
                       <Chip
                         variant="outlined"
                         label={step.status}
                         sx={{
-                          marginLeft: isMobile ? 0.5 : 2,
+                          marginLeft: 2,
                           fontSize: "0.8em",
                           height: "20px",
                           backgroundColor:
@@ -284,7 +270,7 @@ export default function Projects() {
                       paddingY={2}
                       display="flex"
                       alignItems="center"
-                      justifyContent={isMobile ? "end" : "center"}
+                      justifyContent={"center"}
                     >
                       <Link
                         href={step.linkUrl}
@@ -292,15 +278,14 @@ export default function Projects() {
                         className={styles.link}
                       >
                         <Button
-                          // variant={isMobile ? "outlined" : "contained"}
                           disableFocusRipple
                           variant="contained"
                           disabled={step.linkUrl !== "" ? false : true}
                           sx={{
-                            paddingX: isMobile ? 0 : 2,
+                            paddingX: 2,
                           }}
                         >
-                          {isMobile ? "LINK" : "Check it out!"}
+                          {"Check it out!"}
                         </Button>
                       </Link>
                     </Grid>
@@ -308,19 +293,14 @@ export default function Projects() {
                       <Typography
                         fontSize={"0.85em"}
                         color={theme.palette.text.secondary}
-                        paddingY={isMobile ? 0 : 1}
-                        paddingX={isMobile ? 1.5 : 4}
+                        paddingY={1}
+                        paddingX={4}
                         fontStyle="italic"
                       >
                         {step.description}
                       </Typography>
                     </Grid>
-                    <Grid
-                      item
-                      container
-                      xs={12}
-                      display={isMobile ? "none" : "flex"}
-                    >
+                    <Grid item container xs={12} display={"flex"}>
                       <Grid item xs={2}>
                         <Typography
                           fontSize={"0.85em"}
@@ -344,11 +324,11 @@ export default function Projects() {
                         </Typography>
                       </Grid>
                     </Grid>
-                    <Grid item xs={12} display={isMobile ? "none" : "flex"}>
+                    <Grid item xs={12} display={"flex"}>
                       <Typography
                         fontSize={"0.85em"}
                         color={theme.palette.text.primary}
-                        paddingX={isMobile ? 1.5 : 4}
+                        paddingX={4}
                         paddingY={1}
                       >
                         <strong>{`Features: `}</strong>
@@ -362,102 +342,6 @@ export default function Projects() {
                           })}
                         </ul>
                       </Typography>
-                    </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
-                      <Accordion
-                        elevation={0}
-                        sx={{
-                          width: "100%",
-                          marginTop: 1,
-                          "& .MuiAccordionDetails-root": { padding: "0px" },
-                        }}
-                      >
-                        <AccordionSummary
-                          expandIcon={<ExpandMore color="primary" />}
-                        >
-                          <Typography fontSize={"1em"}>Goal</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <Stack
-                            width={"100%"}
-                            display="inline-block"
-                            paddingY={isMobile ? 0 : 1}
-                            paddingX={2}
-                          >
-                            {step.goal}
-                          </Stack>
-                        </AccordionDetails>
-                      </Accordion>
-                    </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
-                      <Accordion
-                        elevation={0}
-                        sx={{
-                          width: "100%",
-                          marginTop: 1,
-                          "& .MuiAccordionDetails-root": { padding: "0px" },
-                        }}
-                      >
-                        <AccordionSummary
-                          expandIcon={<ExpandMore color="primary" />}
-                        >
-                          <Typography fontSize={"1em"}>Features</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <Typography
-                            fontSize={"0.85em"}
-                            color={theme.palette.text.secondary}
-                          >
-                            <ul className={styles.bulletWrapper}>
-                              {step.features.map((feat) => {
-                                return (
-                                  <li key={feat} className={styles.bullet}>
-                                    {feat}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </Typography>
-                        </AccordionDetails>
-                      </Accordion>
-                    </Grid>
-                    <Grid item xs={12} display={isMobile ? "flex" : "none"}>
-                      <Accordion
-                        elevation={0}
-                        sx={{
-                          width: "100%",
-                          marginTop: 1,
-                          "& .MuiAccordionDetails-root": { padding: "0px" },
-                        }}
-                      >
-                        <AccordionSummary
-                          expandIcon={<ExpandMore color="primary" />}
-                        >
-                          <Typography fontSize={"1em"}>Project Tech</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <Stack
-                            width={"100%"}
-                            display="inline-block"
-                            paddingY={isMobile ? 0 : 1}
-                            paddingX={2}
-                          >
-                            {step.technologiesUsed.map((item) => {
-                              return (
-                                <Chip
-                                  key={item}
-                                  label={item}
-                                  sx={{
-                                    fontSize: "0.7em",
-                                    height: 20,
-                                    marginX: 0.15,
-                                  }}
-                                />
-                              );
-                            })}
-                          </Stack>
-                        </AccordionDetails>
-                      </Accordion>
                     </Grid>
                   </Grid>
                 </Grid>
