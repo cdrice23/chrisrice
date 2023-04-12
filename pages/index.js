@@ -134,9 +134,10 @@ export default function Home() {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          sx={{ paddingY: { xs: "300px", sm: "150px", md: "200px" } }}
-          height={"100vh"}
-          width={"100vw"}
+          paddingY="300px"
+          // sx={{ paddingY: { xs: "300px", sm: "150px", md: "200px" } }}
+          height={"100%"}
+          width={"100%"}
           overflow="hidden"
         >
           <HeroGif paused={paused} />
