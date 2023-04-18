@@ -107,7 +107,7 @@ const projectSteps = [
   },
   {
     label: "Pollock Paneer",
-    status: "PENDING",
+    status: "LIVE",
     linkUrl: "https://pollockpaneer.vercel.app/",
     imageUrl: "/pollock_paneer.webp",
     alt: "A red-toned painting in the style of Jackson Pollock with a single-line drawing of Jackson Pollock wearing headphones",
@@ -292,7 +292,6 @@ export default function Projects() {
                         className={styles.link}
                       >
                         <Button
-                          // variant={isMobile ? "outlined" : "contained"}
                           disableFocusRipple
                           variant="contained"
                           disabled={step.linkUrl !== "" ? false : true}
