@@ -141,7 +141,7 @@ const projectSteps = [
     imageUrl: "/rare_crate.jpeg",
     alt: "A person digging through a library of vinyl records",
     description: `" A social media platform that recreates the analog experience of digging through record store crates to discover new music. "`,
-    goal: `Learn foundational concepts of social media platforms (e.g. managing user data/settings, serving relevant and timely data, etc.) and get creative on how to scale an application with budget constraints; attempt to get more familiar with DevOps norms such as testing/monitoring and containerization/orchestration (where appropriate).`,
+    goal: `Learn foundational concepts of social media platforms (e.g. managing user data/settings, serving relevant and timely data, etc.) and get creative on how to scale an application with budget constraints; attempt to get more familiar with DevOps norms such as testing, monitoring, containerization, and orchestration (where appropriate).`,
     features: [
       `Curate collections ("crates") of albums using the Discogs API`,
       `Add unique and/or structured labels to Crates as well as tags on Albums that drive user engagement & discovery`,
